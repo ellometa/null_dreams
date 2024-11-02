@@ -10,8 +10,8 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
-
-    int a,b,c,d; cin >> a >> b >> c >> d;
+   
+      int a,b,c,d; cin >> a >> b >> c >> d;
 
     int lowerb = max(a, c);
     int upperb = min(b,d);
