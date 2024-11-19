@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define AKY AayushKYadav ^_^
+#define AKY AayushKYadav ^_^ 
 
 #define IOS ios::sync_with_stdio(false); cin.tie(nullptr);
 #define int long long
@@ -26,3 +26,4 @@ int32_t main() {
 
     return 0;
 }
+//practice like you never win

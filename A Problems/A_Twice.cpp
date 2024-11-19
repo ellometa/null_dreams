@@ -19,6 +19,7 @@ void solve() {
 
     int counter = 0;
     for (int i = 0; i < n - 1; i++) {
+        1
         if (vecarr[i] == vecarr[i + 1]) {
             counter++;
             i++; 

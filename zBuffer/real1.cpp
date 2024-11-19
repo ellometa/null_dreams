@@ -19,6 +19,7 @@ void solve() {
     sort(l1.begin(), l1.end());
 
     auto price = [&](vector<int> newl, int k) -> int {
+
         int count = 0;
         while (newl.size() >= k + 1) {
             count += accumulate(newl.end() - k, newl.end(), 0LL);
@@ -26,6 +27,7 @@ void solve() {
         }
         count += accumulate(newl.begin(), newl.end(), 0LL);
         return count;
+        
     };
 
     for (int i = 1; i < n; i++) {
