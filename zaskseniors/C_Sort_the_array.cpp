@@ -14,7 +14,7 @@ void solve() {
     int n; cin >> n;
     vector<int> vecarr(n);
     for(auto &x:vecarr){cin>> x;}
-
+`
     sort(all(vecarr));
     for(auto&x:vecarr){cout << x << " ";}
 

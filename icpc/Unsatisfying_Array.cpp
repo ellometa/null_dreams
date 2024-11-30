@@ -2,71 +2,74 @@
 using namespace std;
 
 #define AKY AayushKYadav ^_^
+
 #define IOS ios::sync_with_stdio(false); cin.tie(nullptr);
 #define int long long
-#define newline << '\n'
-#define all(x) (x).begin(), (x).end()
+#define newline <<'\n'
+#define all(x) (x).begin(),(x).end()
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
-    int T;
-    cin >> T;
 
-    while (T--) {
-        int N, K;
-        cin >> N >> K;
+    int n, k;
+    cin >> n >> k;
 
-        vector<int> A(N, N); // Initialize array A with N
-        vector<tuple<int, int, int>> constraints(K);
+    vector<int> vecarr;
+    int rprev = INF;
 
-        for (int i = 0; i < K; ++i) {
-            int L, R, m;
-            cin >> L >> R >> m;
-            constraints[i] = make_tuple(L - 1, R - 1, m); // Convert 1-based to 0-based indexing
+    bool flag= false;
+
+    for (int i = 0; i < k; i++) {
+        int l, r, m;
+        cin >> l >> r >> m;
+
+        if (l!=m){
+            vecarr.push_back(l);
         }
-
-        bool valid = true;
-
-        for (int i = 0; i < K; ++i) {
-            int L = get<0>(constraints[i]);
-            int R = get<1>(constraints[i]);
-            int m = get<2>(constraints[i]);
-
-            bool found = false;
-            for (int j = L; j <= R; ++j) {
-                if (A[j] == m) {
-                    // Change it to something not equal to m
-                    A[j] = (m != 1) ? 1 : N;
-                }
-                if (A[j] != m) {
-                    found = true;
-                }
-            }
-            if (!found) {
-                valid = false;
-                break;
-            }
+        else{
+            flag = true;
         }
-
-        if (valid) {
-            for (int i = 0; i < N; ++i) {
-                cout << A[i] << " ";
-            }
-            cout newline;
-        } else {
-            cout << -1 newline;
-        }
+        rprev = r;
     }
+    vecarr.push_back(rprev);
+
+    sort(all(vecarr));
+
+
+    // for(auto &x:vecarr){cout << x;}
+    int la = vecarr[0], ra = vecarr[vecarr.size()-1];
+
+    if (flag){
+        cout << "-1" newline; return;
+    }
+
+    for (int i = la; i <= ra; i++){
+        cout << i << " ";
+    }
+    cout newline;
+
+
 }
 
 int32_t main() {
     IOS;
 
-    int t = 1;
-    // cin >> t;
+    int t=1;
+    cin >> t;
     while (t--) {
         solve();
     }
 
     return 0;
 }
+/*
+n, k
+array of length n
+
+k triplets given
+
+1 3      2
+l r      m
+
+
+*/
