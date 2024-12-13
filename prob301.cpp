@@ -11,26 +11,23 @@ const int INF = LLONG_MAX >> 1;
 
 void solve() {
 
-    int n; cin>>n;
+    string s; 
+    while(cin >> s){
+        for(int i = 0; i<s.size()-3; i++){
 
-    string s; cin>>s;
-    int counter=0;
-    for (int i = 0; i< n;i++){
-        if (s[i]==s[0]){
-            counter = max(counter, i+1);
-        }
-        if (s[i]==s[n-1]){
-            counter=max(counter,n-i);
+            if (s[i]=='m' && s[i+1]=='u' && s[i+2] == 'l' && s[i+3] == '('){
+                
+            }
         }
     }
-    cout << counter newline;
+
 }
 
 int32_t main() {
-    IOS;
+    // IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }

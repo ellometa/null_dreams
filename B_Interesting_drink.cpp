@@ -11,26 +11,30 @@ const int INF = LLONG_MAX >> 1;
 
 void solve() {
 
-    int n; cin>>n;
+    int n; cin >> n;
+    vector<int> vecarr(n);
+    for(auto &x:vecarr){cin>> x;}
 
-    string s; cin>>s;
-    int counter=0;
-    for (int i = 0; i< n;i++){
-        if (s[i]==s[0]){
-            counter = max(counter, i+1);
-        }
-        if (s[i]==s[n-1]){
-            counter=max(counter,n-i);
-        }
+    sort(all(vecarr));
+
+    int days; cin >> days;
+
+    for(int i = 0; i < days; i++){
+        int target; cin >> target;
+        auto it = upper_bound(all(vecarr), target);
+        int index = it - vecarr.begin();
+        cout << index newline;
     }
-    cout << counter newline;
+
+
+
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }

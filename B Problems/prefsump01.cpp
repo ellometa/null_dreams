@@ -11,26 +11,27 @@ const int INF = LLONG_MAX >> 1;
 
 void solve() {
 
-    int n; cin>>n;
+    int n; cin >> n;
+    vector<int> vecarr(n);
+    for(auto &x:vecarr){cin>> x;}
 
-    string s; cin>>s;
-    int counter=0;
-    for (int i = 0; i< n;i++){
-        if (s[i]==s[0]){
-            counter = max(counter, i+1);
-        }
-        if (s[i]==s[n-1]){
-            counter=max(counter,n-i);
-        }
+
+
+}
+
+bool isPrime(int n){
+    if (n<2) return false;
+    for (int i = 2; i*i<=n;i++){
+        if(n%i==0) return false;
     }
-    cout << counter newline;
+    return true;
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }
