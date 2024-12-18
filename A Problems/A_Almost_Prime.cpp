@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define AKY AayushKYadav ^_^ 
+#define AKY AayushKYadav ^_^
 
 #define IOS ios::sync_with_stdio(false); cin.tie(nullptr);
 #define int long long
@@ -17,35 +17,28 @@ bool isPrime(int n){
     return true;
 }
 
-
-vector<int> is_prime;
-void sieve(int n)
-{
-    is_prime[0] = 0;
-    is_prime[1] = 0;
-    for (int i = 2; i * i <= n ; ++i)
-    {
-        if(is_prime[i] == 1)
-        {
-            for(int u = i * i ; u < n ; u += i)
-            {
-                is_prime[u] = 0; 
-            }
-        }
-    }
-}
-
-
-
-
-
-
 void solve() {
 
-    int n; cin >> n;
-    vector<int> vecarr(n);
-    for(auto &x:vecarr){cin>> x;}    
-
+    int n; cin>>n;
+    int counter = 0;
+    for (int j = 2; j<=n; j++){
+        int factor = 0;
+        // cout << "j " << j newline;
+        for (int i = 1; i <= j; i++){
+            
+            if(j%i == 0 && isPrime(i)){
+                // cout << "i " << i newline;
+                factor+=1;
+            }
+            
+            
+        }
+        if (factor == 2){
+            counter +=1;
+        }
+    }   
+    
+    cout << counter;
 }
 
 int32_t main() {
@@ -59,4 +52,3 @@ int32_t main() {
 
     return 0;
 }
-//practice like you never win
