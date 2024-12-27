@@ -10,12 +10,28 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
+
+    int n; cin >> n; 
+    string s; cin >> s;
     
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
+    string res;
     
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
     
+    res+=s[0];
     
+    for (int i = 1; i < n; i++){
+        if(s[i] != s[i-1]){
+            res+=s[i];
+        }
+    }
+    
+    if(res =="meow"){
+        cout << "YES" newline;
+    }
+    else{
+        cout << "NO" newline;
+    }
 }
 
 int32_t main() {

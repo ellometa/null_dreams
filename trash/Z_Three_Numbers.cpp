@@ -10,19 +10,29 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
-    
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
-    
-    
-    
+
+    int k, s; cin >> k >> s;
+
+    int count = 0;
+
+    for (int x = 0; x <=k; x++){
+        for (int y = 0; y <=k; y++){
+            int z = s - (x+y);
+            if(z>=0 && z<=k){
+                count++;
+            }
+        }
+    }
+
+    cout << count newline;
+
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }

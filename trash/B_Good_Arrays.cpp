@@ -10,12 +10,26 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
-    
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
-    
-    
-    
+
+    int n; cin>>n;
+    int sum = 0;
+    for (int i =0; i<n; i++){
+        int temp; cin >> temp;
+        sum+=temp;
+    }
+
+
+    if (n==1){
+        cout << "NO" newline;
+    }
+    else if (sum > n+1){
+        cout << "YES" newline;
+    }
+
+    else{
+        cout << "NO" newline;
+    }
+
 }
 
 int32_t main() {

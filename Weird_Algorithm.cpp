@@ -10,19 +10,28 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
+
+    int n; cin >> n;
     
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
+    cout << n << " ";
     
-    
-    
+    while (n > 1){
+        if (n%2==0){
+            n/=2;
+        }
+        else{
+            n=3*n + 1;
+        }
+        cout << n << " " ;
+    }
+
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }

@@ -11,18 +11,30 @@ const int INF = LLONG_MAX >> 1;
 
 void solve() {
     
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
     
+    int a, b, n; cin >> a >> b >> n;
+    int res = a;
+    for (int i = 0; i < n ; i++){
+        res = res*10 + 1;
+    }
+    cout << res newline;
     
+    // double res = a* pow (10, n);
+    cout << b*(ceil(res/b)) newline;  
     
+    // if ((int)ceil(res/b) % b == 0){
+        
+    // }
+    // else{
+    //     cout << -1 newline;
+    // }
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }

@@ -10,19 +10,26 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
+
+    int n; cin >> n;
     
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
+    int rsum = (n*(n+1))/2;
+    int sum = 0;
     
     
-    
+    for (int i = 0; i < n-1; i++){
+        int temp; cin>>temp;
+        sum+=temp;
+    }
+    cout << rsum - sum;
+
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }

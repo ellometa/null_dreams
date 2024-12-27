@@ -9,20 +9,36 @@ using namespace std;
 #define all(x) (x).begin(),(x).end()
 const int INF = LLONG_MAX >> 1;
 
+bool isPrime(int n){
+    if (n<2) return false;
+    for (int i = 2; i*i<=n;i++){
+        if(n%i==0) return false;
+    }
+    return true;
+}
+
 void solve() {
+
+
+    vector<int> primelist;
+
+    int i = 2;
+    while(primelist.size()!=10002){
+        if (isPrime(i)){
+            primelist.push_back(i);
+        }
+        i++;
+    }
     
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
-    
-    
-    
+    cout << primelist[10000];
+
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }

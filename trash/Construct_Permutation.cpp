@@ -10,12 +10,19 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
-    
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
-    
-    
-    
+
+    int n; cin >> n; 
+
+    if (n%2==0){
+        cout << "-1" ;
+    }
+    else{
+        for (int i = 0; i < n; i++){
+            cout << n+2 << " ";
+        }
+    }
+    cout newline;
+
 }
 
 int32_t main() {
@@ -29,3 +36,4 @@ int32_t main() {
 
     return 0;
 }
+//for the record, i was on the right track

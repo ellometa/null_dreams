@@ -10,12 +10,12 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
+
+    int l, b, h; cin >> l >> b >> h;
     
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
-    
-    
-    
+    int area = 2 * (l*b + b*h + h*l);
+    cout << floor(1000/area) newline;
+
 }
 
 int32_t main() {

@@ -10,12 +10,18 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
-    
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
-    
-    
-    
+
+    int a, b; cin >> a >> b;
+    int ans;
+    if (a!=0){
+        ans = a*1 + b*2 + 1;
+    }
+    else{
+        ans = 1;
+    }
+
+    cout << ans newline;
+
 }
 
 int32_t main() {

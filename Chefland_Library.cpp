@@ -11,11 +11,23 @@ const int INF = LLONG_MAX >> 1;
 
 void solve() {
     
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
+    int n; cin >> n;
+    vector<int> vecarr(n);
+    for(auto &x:vecarr){cin>> x;}
     
+    vector<int> freq(100001, 0);
+    int sum = 0;
     
+    for (int i = vecarr.size()-1; i >=0; i--){
+        
+        int day =vecarr[i];
+        if(freq[day] == 1){continue;}
+        freq[day] = 1;
+        sum += (i+1);
+        
+    }
     
+    cout << sum newline;
 }
 
 int32_t main() {

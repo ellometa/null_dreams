@@ -11,18 +11,22 @@ const int INF = LLONG_MAX >> 1;
 
 void solve() {
     
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
+    int x, y, z; cin >> x >> y >> z;
     
-    
-    
+    if ( x+y == z || x + z == y || z + y == x || (x == y && y == z)){
+        cout << "Yes";
+    }
+    else{
+        cout << "No";
+    }
+    cout  newline;
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }

@@ -10,19 +10,28 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
-    
-    int x, y, z, a, b, c, k;
-    cin >> x >> y >> z >> a >> b >> c >> k;
-    
-    
-    
+
+    int n; cin >> n;
+    vector<int> vecarr(n);
+    for(auto &x:vecarr){cin >> x;}
+
+    for (int i=0; i<n-1; i++){
+        for (int j=0; j<n-1; j++){
+            if(vecarr[j]>vecarr[j+1]){
+                swap(vecarr[j], vecarr[j+1]);
+            }
+        }
+    }
+
+    for(auto &x:vecarr){cout << x <<" ";}
+
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }
