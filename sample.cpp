@@ -1,29 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define ll long long 
 
-#define AKY AayushKYadav ^_^
 
-#define IOS ios::sync_with_stdio(false); cin.tie(nullptr);
-#define int long long
-#define newline <<'\n'
-#define all(x) (x).begin(),(x).end()
-const int INF = LLONG_MAX >> 1;
+ll t = 1;
 
-void solve() {
-
-    cout << (5<<2) << endl;
+void say(){
     
-    
-}
-
-int32_t main() {
-    IOS;
-
-    int t=1;
-    // cin >> t;
-    while (t--) {
-        solve();
+  
+    int a[5] = {1, 2, 3, 4, 5};
+    int b[5] = {4, 5, 6, 7, 8};
+    int c[5] = {7, 8, 9, 10, 11};
+  
+    int sum1 = 0;
+  
+    // O(n^3)
+    for (int i = 0; i < 5; ++i) {
+        for (int j = 0; j < 5; ++j) {
+            for (int k = 0; k < 5; ++k) {
+                sum1 += a[i] * b[j] * c[k];
+            }
+        }
     }
 
-    return 0;
+  
+}
+
+
+
+int32_t main() {
+  
+  cin >> t;
+  
+  while (t--){
+    say();
+  }
 }
