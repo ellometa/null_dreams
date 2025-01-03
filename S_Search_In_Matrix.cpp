@@ -10,7 +10,25 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
+
+    int x, y; cin >> x >> y;
     
+    vector<int> freq(100001, 0);
+    
+    for (int i = 0; i < x*y; i++){
+        int temp; cin >> temp;
+        freq[temp]+=1;
+    }
+    
+    int r; cin >> r;
+    
+    if (freq[r] == 0){
+        cout << "will take number";
+    }
+    else{
+        cout << "will not take number";
+    }
+
 }
 
 int32_t main() {
