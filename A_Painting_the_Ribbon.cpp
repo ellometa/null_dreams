@@ -10,17 +10,26 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
-
-    cout << (5<<2) << endl;
+    int n, m, k; cin >> n >> m >> k;
+    int maxn = (n+m-1) / m;
     
+    if (k < n-maxn){
+        cout << "YES" newline;
+    }    
+    else{
+        cout << "NO" newline;
+    }
     
 }
 
 int32_t main() {
-  
-  cin >> t;
-  
-  while (t--){
-    say();
-  }
+    IOS;
+
+    int t=1;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
 }

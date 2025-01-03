@@ -11,16 +11,21 @@ const int INF = LLONG_MAX >> 1;
 
 void solve() {
 
-    cout << (5<<2) << endl;
-    
-    
+    int n; cin >> n;
+    for(int i = 1 ; i <= n ; i++){
+        cout << 2*i << " ";
+    }
+    cout newline;
 }
 
 int32_t main() {
-  
-  cin >> t;
-  
-  while (t--){
-    say();
-  }
+    IOS;
+
+    int t=1;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
 }
