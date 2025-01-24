@@ -12,17 +12,17 @@ const int INF = LLONG_MAX >> 1;
 void solve() {
 
     
-
+    
 }
 
 int32_t main() {
     IOS;
 
-    int t=1;
-    // cin >> t;
-    while (t--) {
+    int tc = 1;;
+    // cin >> tc;
+    for (int t = 1; t <= tc; t++) {
+        // cout << "Case #" << t << ": ";
         solve();
     }
-
     return 0;
 }
