@@ -10,16 +10,30 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
-
     
-
+    int n; cin >> n;
+    vector<int> vecarr(n);
+    for(auto &x:vecarr){cin>> x;}
+    int maxn = 0;
+    for (int i = 0; i < vecarr.size(); i++){
+        
+        if(vecarr[i]>maxn){
+            maxn = vecarr[i];
+            cout << 1 << " ";
+        }
+        else {
+            cout << 0 << " ";
+        }
+        
+    }
+    cout newline;
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }

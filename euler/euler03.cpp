@@ -9,10 +9,26 @@ using namespace std;
 #define all(x) (x).begin(),(x).end()
 const int INF = LLONG_MAX >> 1;
 
+
+
+
+bool isPrime(int n){
+    if (n<2) return false;
+    for (int i = 2; i*i<=n;i++){
+        if(n%i==0) return false;
+    }
+    return true;
+}
+
 void solve() {
-
     
-
+    int n = 600851475143;
+    for (int i = 1; i*i < n; i++){
+        if (isPrime(i) && n%i == 0){
+            cout << i << " ";
+        }
+    }
+    
 }
 
 int32_t main() {
@@ -21,6 +37,7 @@ int32_t main() {
     int t=1;
     // cin >> t;
     while (t--) {
+        
         solve();
     }
 

@@ -11,7 +11,9 @@ const int INF = LLONG_MAX >> 1;
 
 void solve() {
 
+    int x, y; cin >> x >> y;
     
+    cout << max(x,y) + 1 newline;
 
 }
 
@@ -19,7 +21,7 @@ int32_t main() {
     IOS;
 
     int t=1;
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }

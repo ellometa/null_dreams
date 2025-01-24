@@ -11,15 +11,16 @@ const int INF = LLONG_MAX >> 1;
 
 void solve() {
 
+    int people; cin >> people;
     
-
+    cout << ceil(people/5)*6 newline;
 }
 
 int32_t main() {
     IOS;
 
     int t=1;
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
