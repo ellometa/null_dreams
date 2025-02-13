@@ -10,7 +10,24 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
+
+    int n, q; cin >> n >> q;
     
+    vector<int> vecarr(n+1, 0);
+    
+    
+    for (int i =0; i < q; i++){
+        
+        int a, b; cin >> a >> b;
+        
+        if (a == 1){
+            vecarr[b]+=1;
+        }
+        else{
+            cout << vecarr[b] newline;
+        }
+        
+    }
 
 }
 

@@ -10,7 +10,16 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
-    
+
+    string s; cin >> s;
+    if (s=="N"){cout << "S" newline;}
+    else if (s=="S"){cout << "N" newline;}
+    else if (s=="W"){cout << "E" newline;}
+    else if (s=="E"){cout << "W" newline;}
+    else if (s=="NW"){cout << "SE" newline;}
+    else if (s=="NE"){cout << "SW" newline;}
+    else if (s=="SW"){cout << "NE" newline;}
+    else if (s=="SE"){cout << "NW" newline;}
 
 }
 

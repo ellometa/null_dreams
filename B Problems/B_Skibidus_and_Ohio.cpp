@@ -10,6 +10,11 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
+
+    string s; cin >> s;
+    
+    
+    cout << s.length() newline; 
     
 
 }
@@ -18,7 +23,7 @@ int32_t main() {
     IOS;
 
     int t=1;
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
