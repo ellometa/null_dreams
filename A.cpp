@@ -10,11 +10,14 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve() {
+
+    int x, y, z; cin >> x >> y >> z;
+
     
 
 }
 
-signed main(){
+int32_t main() {
     IOS;
 
     int t=1;
