@@ -11,7 +11,7 @@ const int INF = LLONG_MAX >> 1;
 
 void solve() {
     
-
+    
 }
 
 signed main(){
