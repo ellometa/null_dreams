@@ -34,7 +34,7 @@ void solve() {
 
 }
 
-int32_t main() {
+signed main() {
     IOS;
 
     int t=1;
