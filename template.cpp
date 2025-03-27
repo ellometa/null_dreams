@@ -9,8 +9,7 @@ using namespace std;
 #define all(x) (x).begin(),(x).end()
 const int INF = LLONG_MAX >> 1;
 
-void solve() {
-    
+void solve(){
     
 }
 
