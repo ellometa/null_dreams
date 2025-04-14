@@ -11,14 +11,22 @@ const int INF = LLONG_MAX >> 1;
 
 void solve(){
     int n; cin >> n;
-    
+    vector<int> arr(n);
+    for(auto &x:arr){cin >> x;}
+
+    sort(all(arr)); 
+
+    for(auto &x:arr){cout << x-- << " " newline;}
+
+
+
 }
 
 signed main(){
     IOS;
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }
