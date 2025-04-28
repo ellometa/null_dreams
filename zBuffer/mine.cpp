@@ -10,16 +10,16 @@ using namespace std;
 const int INF = LLONG_MAX >> 1;
 
 void solve(){
-    int n; cin >> n;
-    vector<int> arr(n);
-    for(auto &x:arr){cin >> x;}
-
-    sort(all(arr)); 
-
-    for(auto &x:arr){cout << x-- << " " newline;}
-
- 
-
+    int n, y; cin >> n >> y;
+    int counter = 1;
+    while (n--){
+        int x; cin >> x;
+        if (x == y){
+            cout << counter; return;
+        }
+        counter+=1;
+    }
+    
 }
 
 signed main(){

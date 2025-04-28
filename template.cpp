@@ -11,15 +11,16 @@ const int INF = LLONG_MAX >> 1;
 
 void solve(){
     int n; cin >> n;
-    
+    cout << n+1;
 }
 
 signed main(){
     IOS;
 
     int t=1;
-    cin >> t;
-    while (t--) {
+    // cin >> t;
+    for (int i = 1; i <= t; i++){
+        // cout << "Case " << i << ":" newline;
         solve();
     }
 

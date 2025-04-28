@@ -11,22 +11,29 @@ const int INF = LLONG_MAX >> 1;
 
 void solve(){
     int n; cin >> n;
-    vector<int> arr(n);
-    for(auto &x:arr){cin >> x;}
-
-    sort(all(arr)); 
-
-    for(auto &x:arr){cout << x-- << " " newline;}
-
- 
-
+    string s; cin >> s;
+    int counter=0, gcount = 0, bcount = 0;
+    for (int i = 0; i < n; i++){
+        if (s[i] == 'G'){
+            gcount +=1;
+        }
+        else{
+            bcount +=1;
+        }
+        
+        if (bcount > 2*gcount){
+            cout << bcount + gcount newline;
+            return;
+        }
+    }
+    cout << bcount + gcount newline;
 }
 
 signed main(){
     IOS;
 
     int t=1;
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
