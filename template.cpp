@@ -43,13 +43,6 @@ void print_container(const T& container) {
 
 void solve(){
     int n; cin >> n;
-    vi v1;
-    fr(i, 0, n){
-        int x; cin >> x;
-        v1.pb(x);
-    }
-
-    print(v1);
     
 }
 
