@@ -38,62 +38,29 @@ void print_container(const T& container) {
 }
 #define print(x) print_container(x);
 
-//---------------------------------------------------------------------------------------------------------
-
-//* Modular Multiplication
-int mod_mul(int a, int b) {return ((a % MOD) * (b % MOD)) % MOD;}
-
-//* Binary Exponentiation
-int binpow(int a, int b, int m = MOD) {
-    int res = 1;
-    a %= m;
-    while (b) {
-        if (b & 1LL) res = res * a % m;
-        a = mod_mul(a, a);
-        b >>= 1LL;
-    }
-    return res;
-}
- 
-//* Modular Addition
-int mod_add(int a, int b) {return ((a % MOD) + (b % MOD)) % MOD;}
- 
-//* Modular Subtraction
-int mod_sub(int a, int b) {return ((a % MOD) - (b % MOD) + MOD) % MOD;}
- 
-//* Modular Division (using Modular Inverse)
-int mod_inv(int a, int m = MOD) {return binpow(a, m - 2, m);}  // Fermat's Little Theorem
- 
-int mod_div(int a, int b) {return mod_mul(a, mod_inv(b));}
- 
-//?----------------------------------------------------------------------------------------------------------
-
-//! Factorial with modular arithmetic
-
-
-vector<int> fact, inv_fact;
-void init_factorial(int n, int m = MOD) {
-    fact.resize(n + 1, 1);
-    inv_fact.resize(n + 1, 1);
-    for (int i = 2; i <= n; ++i) fact[i] = fact[i - 1] * i % m;
-    inv_fact[n] = binpow(fact[n], m - 2, m); // Fermat's Little Theorem for modular inverse
-    for (int i = n - 1; i >= 1; --i) inv_fact[i] = inv_fact[i + 1] * (i + 1) % m;
-}
-int nCr(int n, int r, int m = MOD) {
-    if (r > n) return 0;
-    return fact[n] * inv_fact[r] % m * inv_fact[n - r] % m;
-}
 
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
     int n; cin >> n;
-    if (n == 0){
-        cout << 1 << endl;
+    int number = n;
+
+    int rev = 0;
+    while(n>0){
+        rev = rev*10 + n%10;
+        n/=10;
     }
-    for (int i = 1; i < 21; i++){
-        v1.pb
+    cout << rev << endl;
+
+    if (number == rev){
+        cout << "YES" << endl;
+    } 
+    else{
+        cout << "NO" << endl;
     }
+
+
+
     
 }
 
@@ -101,7 +68,7 @@ signed main(){
     fast_input();
 
     int t=1;
-    cin >> t;
+    // cin >> t;
     for (int i = 1; i <= t; i++){
         // cout << "Case " << i << ":" << endl;
         solve();
