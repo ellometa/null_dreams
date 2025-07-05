@@ -47,16 +47,6 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 #define nline <<'\n'
 
-//.........Bit_Manipulation...........//
-#define msb(mask) (63-__builtin_clzll(mask))  /// 0 -> -1
-#define lsb(mask) __builtin_ctzll(mask)  /// 0 -> 64
-#define lusb(mask) __builtin_ctzll(~(mask))
-#define cntsetbit(mask) __builtin_popcountll(mask)
-#define checkbit(mask,bit) ((mask >> bit) & 1ll)
-#define onbit(mask,bit) ((mask)|(1LL<<(bit)))
-#define offbit(mask,bit) ((mask)&~(1LL<<(bit)))
-#define changebit(mask,bit) ((mask)^(1LL<<bit))
-
 const int INF = LLONG_MAX >> 1;
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -81,6 +71,23 @@ void print_container(const T& container) {
 
 void solve(){
     in(n);
+    set<string> final;
+
+    vector<string> inpu(n);
+    ina(inpu, n);
+    // print(inpu);
+    fr(i, 0, n){
+        fr(j, 0, n){
+            if(i!=j){
+                string s = inpu[i] + inpu[j];
+                string f = inpu[j] + inpu[i];
+                final.insert(s);
+                final.insert(f);
+            }
+        }
+    }
+    cout << final.size();
+    // print(final);
     
 }
 

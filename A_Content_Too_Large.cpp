@@ -47,16 +47,6 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 #define nline <<'\n'
 
-//.........Bit_Manipulation...........//
-#define msb(mask) (63-__builtin_clzll(mask))  /// 0 -> -1
-#define lsb(mask) __builtin_ctzll(mask)  /// 0 -> 64
-#define lusb(mask) __builtin_ctzll(~(mask))
-#define cntsetbit(mask) __builtin_popcountll(mask)
-#define checkbit(mask,bit) ((mask >> bit) & 1ll)
-#define onbit(mask,bit) ((mask)|(1LL<<(bit)))
-#define offbit(mask,bit) ((mask)&~(1LL<<(bit)))
-#define changebit(mask,bit) ((mask)^(1LL<<bit))
-
 const int INF = LLONG_MAX >> 1;
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -80,7 +70,18 @@ void print_container(const T& container) {
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
-    in(n);
+    in(n); in(sum);
+    vi x(n);
+    ina(x, n);
+    int finsum = accumulate(all(x), 0);
+    // cout << finsum;
+    if (finsum <= sum){
+        
+        oyess;
+    }
+    else{
+        onoo;
+    }
     
 }
 

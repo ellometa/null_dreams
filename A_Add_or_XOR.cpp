@@ -33,7 +33,6 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 #define ff first
 #define ss second
 #define MOD 1000000007
-#define endl "\n"
 #define oyes cout << "YES" << endl;
 #define ono cout << "NO" << endl;
 #define oyess cout << "Yes" << endl;
@@ -81,7 +80,6 @@ void print_container(const T& container) {
 
 void solve(){
     in(n);
-    
 }
 
 signed main(){
