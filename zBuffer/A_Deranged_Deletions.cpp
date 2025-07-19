@@ -11,21 +11,24 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 #define int long long
 #define fr(i, a, b) for (int i = (a); i < (int)(b); ++i)
 #define frr(i, a, b) for (int i = (a); i > (int)(b); --i)
-#define in(n)    \
-    long long n; cin >> n;
 #define ina(x, n)               \
     for (int i = 0; i < n; ++i) \
         cin >> x[i];
-#define input_set(set, n)       \
-    for(int i=0;i<n;i++){int x;cin>>x;set.insert(x);}
+#define in(n)    \
+    long long n; \
+    cin >> n;
 #define double long double
 #define pb push_back
 #define vi vector<int>
 #define mii map<int, int>
 #define vvi vector<vector<int>>
 #define vpi vector<pair<int, int>>
+#define mdi map<double, int>
+#define mci map<char, int>
+#define mide map<int, deque<int>>
 #define pi pair<int, int>
 #define si set<int>
+
 
 #define ff first
 #define ss second
@@ -78,14 +81,28 @@ void print_container(const T& container) {
 
 void solve(){
     in(n);
+    vi num(n, 0);
+    ina(num, n);
     
+    if (n == 1) { ono; return;}
+
+    fr(i, 1, n){
+        if (num[i-1] > num[i]){
+            oyes; 
+            cout << 2 nline << num[i-1] << " " << num[i] nline;
+            return;
+        }
+    }
+
+    ono;
+    // print(num3);
 }
 
 signed main(){
     fast_input();
 
     int t=1;
-    // cin >> t;
+    cin >> t;
     for (int i = 1; i <= t; i++){
         // cout << "Case " << i << ":" << endl;
         solve();
