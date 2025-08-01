@@ -1,11 +1,5 @@
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
-using namespace __gnu_pbds;
-typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;
-mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
-
 #define fast_input() ios::sync_with_stdio(false); cin.tie(nullptr);
 
 #define int long long
@@ -77,15 +71,37 @@ void print_container(const T& container) {
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
+
     in(n);
-    
+    vi num(n);
+    ina(num, n);
+
+    vi freq(51, 0);
+    for (auto x:num){
+        freq[x] += 1;
+    }
+
+    int finala = 0;
+    int mex = min(freq[0], freq[1]);
+    finala += mex * 2;
+    freq[0] -= mex;
+    freq[1] -= mex;
+
+    finala += freq[0]; //zero ka mex = 1
+    freq[0] = 0;
+    fr(i, 0, 51){
+        if(freq[i]>0){
+            finala += i * freq[i];
+        }
+    }
+    cout << finala nline;
 }
 
 signed main(){
     fast_input();
 
     int t=1;
-    // cin >> t;
+    cin >> t;
     for (int i = 1; i <= t; i++){
         // cout << "Case " << i << ":" << endl;
         solve();

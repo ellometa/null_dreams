@@ -11,21 +11,24 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 #define int long long
 #define fr(i, a, b) for (int i = (a); i < (int)(b); ++i)
 #define frr(i, a, b) for (int i = (a); i > (int)(b); --i)
-#define in(n)    \
-    long long n; cin >> n;
 #define ina(x, n)               \
     for (int i = 0; i < n; ++i) \
         cin >> x[i];
-#define input_set(set, n)       \
-    for(int i=0;i<n;i++){int x;cin>>x;set.insert(x);}
+#define in(n)    \
+    long long n; \
+    cin >> n;
 #define double long double
 #define pb push_back
 #define vi vector<int>
 #define mii map<int, int>
 #define vvi vector<vector<int>>
 #define vpi vector<pair<int, int>>
+#define mdi map<double, int>
+#define mci map<char, int>
+#define mide map<int, deque<int>>
 #define pi pair<int, int>
 #define si set<int>
+
 
 #define ff first
 #define ss second
@@ -73,12 +76,59 @@ void print_container(const T& container) {
 #define print(x) print_container(x);
 
 
+//--------------------------------------------------------------------------------------------------------------------
+
+//* GCD using the Euclidean Algorithm
+template <typename T>
+T gcd(T a, T b) {
+    while (b != 0) {
+        a %= b;
+        swap(a, b);
+    }
+    return a;
+}
+
+//* LCM using the GCD formula
+template <typename T>
+T lcm(T a, T b) {return (a / gcd(a, b)) * b;}  // a * b / gcd(a, b)
+
+
+//* Sieve of Eratosthenes for primes
+vector<int> sieve(int n) {
+    vi st;
+    vector<bool> is_prime(n + 1, true);
+    is_prime[0] = is_prime[1] = false;
+    for (int i = 2; i * i <= n; ++i) {
+        if (is_prime[i]) {
+            for (int j = i * i; j <= n; j += i) {
+                is_prime[j] = false;
+            }
+        }
+    }
+    for (int i = 0; i <= n; i++) {
+        if (is_prime[i]) {
+            st.pb(i);
+        }
+    }
+    return st;
+}
+
+
 
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
-    in(n);
-    
+    vi primal = sieve(1e9);
+    int counter = 0;
+    for (auto &x : primal)
+    {
+        // cout << x << " "  nline;
+        counter += 1;
+        if (1337%x == 0){
+            cout << counter << " " << x nline;
+        }
+    }
+    cout << counter nline;
 }
 
 signed main(){
