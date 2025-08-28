@@ -1,45 +1,43 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cmath>
 using namespace std;
 
-#define AKY AayushKYadav ^_^
-
-#define IOS ios::sync_with_stdio(false); cin.tie(nullptr);
-#define int long long
-#define newline <<'\n'
-#define all(x) (x).begin(),(x).end()
-const int INF = LLONG_MAX >> 1;
+long long largest_prime_factor(long long n) {
+    long long max_prime = -1;
 
 
-
-
-bool isPrime(int n){
-    if (n<2) return false;
-    for (int i = 2; i*i<=n;i++){
-        if(n%i==0) return false;
+    while (n % 2 == 0) {
+        max_prime = 2;
+        n /= 2;
     }
-    return true;
-}
 
-void solve() {
-    
-    int n = 600851475143;
-    for (int i = 1; i*i < n; i++){
-        if (isPrime(i) && n%i == 0){
-            cout << i << " ";
+
+    for (long long i = 3; i <= std::sqrt(n); i += 2) {
+        while (n % i == 0) {
+            max_prime = i;
+            n /= i;
         }
     }
-    
+
+
+    if (n > 2)
+        max_prime = n;
+
+    return max_prime;
 }
 
-int32_t main() {
-    IOS;
 
-    int t=1;
-    // cin >> t;
-    while (t--) {
-        
+void solve (){
+    long long n; cin >> n;
+    std::cout << largest_prime_factor(n) << std::endl;
+
+}
+
+int main() {
+    int t; cin >> t;
+    while (t--){
         solve();
     }
-
+    
     return 0;
 }
