@@ -1,0 +1,1 @@
+{"name":"Local: p01","url":"/Users/ellometa/Music/null_dreams/p01.cpp","tests":[{"id":1760371476824,"input":"4\n121\n39\n123456\n1200","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/ellometa/Music/null_dreams/p01.cpp","group":"local","local":true}

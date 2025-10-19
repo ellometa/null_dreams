@@ -5,3 +5,5 @@ desktop.ini
 zBuffer/binaries
 *.txt
 *.out
+*.zip
+*.prob
