@@ -1,7 +1,4 @@
 #include <bits/stdc++.h>
-
-#define AKY AayushKYadav ^_^
-
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
@@ -47,48 +44,65 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 #define nline <<'\n'
 
-//.........Bit_Manipulation...........//
-#define msb(mask) (63-__builtin_clzll(mask))  /// 0 -> -1
-#define lsb(mask) __builtin_ctzll(mask)  /// 0 -> 64
-#define lusb(mask) __builtin_ctzll(~(mask))
-#define cntsetbit(mask) __builtin_popcountll(mask)
-#define checkbit(mask,bit) ((mask >> bit) & 1ll)
-#define onbit(mask,bit) ((mask)|(1LL<<(bit)))
-#define offbit(mask,bit) ((mask)&~(1LL<<(bit)))
-#define changebit(mask,bit) ((mask)^(1LL<<bit))
-
 const int INF = LLONG_MAX >> 1;
-
-//--------------------------------------------------------------------------------------------------------------------
-
-//* Debuggers
-#define debug(x) cout << #x << " = " << x << endl;
-
-
-template<typename T>
-void print_container(const T& container) {
-    for (auto it = container.begin(); it != container.end(); ++it) {
-        cout << *it;
-        if (next(it) != container.end()) cout << " ";
-    }
-    cout << endl;
-}
-#define print(x) print_container(x);
-
-
 
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
     in(n);
+    vi num(n);   ina(num, n);
+    string xtr;    cin >> xtr;
+
+    vector<char> s(n, '0');
+
+
+    if (xtr.find('1') == string::npos) {
+        cout << 0 nline;
+        return;
+    }
+
+
+    auto mini = *min_element(all(num));
+
+    auto maxi = *max_element(all(num));
+
+    int index = 0;
+
+    for(auto x: num){
+        if(mini == x){
+            s[index] = '1';
+        }
+        if(maxi == x){
+            s[index] = '1';
+        }
+        index+=1;
+    }
     
+
+    for (int i = 0; i < (int)xtr.length(); i++){
+
+        if (xtr[i] == '1' && s[i]== '1'){
+            ve1;
+            return;
+        }
+
+    }
+    cout << 1 nline;
+    cout << num[0] << " " << num[num.size()-1] nline;
+
+
+    // wherever the min max is flag it as not possible to be 1
+    // then sure
+    // else if x = 0 then sure
+
+
 }
 
 signed main(){
     fast_input();
 
     int t=1;
-    // cin >> t;
+    cin >> t;
     for (int i = 1; i <= t; i++){
         // cout << "Case " << i << ":" << endl;
         solve();

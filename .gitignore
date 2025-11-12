@@ -1,5 +1,6 @@
 .cph
 .vscode
+.cph-ng
 desktop.ini
 .DS_Store
 zBuffer/binaries
