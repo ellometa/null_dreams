@@ -46,89 +46,48 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 const int INF = LLONG_MAX >> 1;
 
-//--------------------------------------------------------------------------------------------------------------------
-
-//* Debuggers
-#define debug(x) cout << #x << " = " << x << endl;
-
-
-template<typename T>
-void print_container(const T& container) {
-    for (auto it = container.begin(); it != container.end(); ++it) {
-        cout << *it;
-        if (next(it) != container.end()) cout << " ";
-    }
-    cout << endl;
-}
-#define print(x) print_container(x);
 //?-----------------------------------------------------------------------------------------------------------
 
+
+bool acheck(int a){
+    int digitcnt = 0;
+    int ta = a;
+    while(a!=0){
+        if(a%10!=0){
+            digitcnt+=1;
+        }
+        a/=10;
+    }
+    // cout << ta << " " <<  digitcnt nline;
+    if(digitcnt == 1){
+        return true;
+    }else{
+        return false;
+    }
+}
+vi rndnum(1e7+1, 0);
+void precomp(){
+
+    fr(i, 1, (1e7+1)){
+        if(acheck(i)){
+            rndnum[i] = 1;
+        }
+    }
+    fr(i, 1, rndnum.size()){
+        rndnum[i] += rndnum[i - 1];
+    }
+}
+
 void solve(){
-    in(n);
-    string s; cin >> s;
+    int n;
+    cin >> n;
     
-    vi nums;
-
-    // int tempcounter = 0;
-    bool firstflag = false;
-    int firstindex = 0;
-
-    fr(i, 0, n){
-        if (s[i]=='.'){
-            if (firstflag == false){
-                firstindex = i;
-                firstflag = true;
-            }
-
-        }
-        if (s[i] == '#'  ){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i - firstindex);    
-            }
-        }
-        if(i==n-1){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i+1 - firstindex);    
-            }
-        }
-
-        
-    }
-    nums.pb(0);
-
-    int ans = 0;
-    bool pardonflag = false;
-    for(auto &x:nums){
-        if(x>=3){
-            pardonflag = true;
-            ans+=2;
-            break;
-        }
-    }
-
-    for(auto &x:nums){
-        if (pardonflag){
-            break;
-        }
-        else if (x==1){
-            ans+=1;
-        }
-        else if (x==0){
-            ans+=0;
-        }
-        else{
-            ans+=2;
-        }
-    }
-    // print(nums);
-    cout << ans nline;
+    cout << rndnum[n] nline;
 }
 
 signed main(){
     fast_input();
-
+    precomp();
     int t=1;
     cin >> t;
     for (int i = 1; i <= t; i++){

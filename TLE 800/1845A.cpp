@@ -46,84 +46,55 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 const int INF = LLONG_MAX >> 1;
 
-//--------------------------------------------------------------------------------------------------------------------
-
-//* Debuggers
-#define debug(x) cout << #x << " = " << x << endl;
-
-
-template<typename T>
-void print_container(const T& container) {
-    for (auto it = container.begin(); it != container.end(); ++it) {
-        cout << *it;
-        if (next(it) != container.end()) cout << " ";
-    }
-    cout << endl;
-}
-#define print(x) print_container(x);
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
     in(n);
-    string s; cin >> s;
-    
-    vi nums;
+    in(k);
+    in(x);
 
-    // int tempcounter = 0;
-    bool firstflag = false;
-    int firstindex = 0;
+    if (k == n && k!=x){
+        oyes;
+        cout << 1 nline << k nline;
+        return;
+    }
 
-    fr(i, 0, n){
-        if (s[i]=='.'){
-            if (firstflag == false){
-                firstindex = i;
-                firstflag = true;
-            }
-
+    if (x != 1){
+        oyes;
+        cout << n nline ;
+        fr(i,0,n){
+            cout << 1 << " ";
         }
-        if (s[i] == '#'  ){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i - firstindex);    
-            }
-        }
-        if(i==n-1){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i+1 - firstindex);    
-            }
-        }
+        cout nline;
+        return;
+    }
 
         
-    }
-    nums.pb(0);
+    // if x == 1
 
-    int ans = 0;
-    bool pardonflag = false;
-    for(auto &x:nums){
-        if(x>=3){
-            pardonflag = true;
-            ans+=2;
-            break;
+    if (n&1 && k>=3){
+        oyes;
+        cout << ((n-3)/2)+1 nline;
+        fr(i, 0, (n-3)/2){
+            cout << 2 << " ";
         }
+        cout << 3 nline;
+        return;
     }
-
-    for(auto &x:nums){
-        if (pardonflag){
-            break;
+    else if (n%2 == 0 && k>=2){
+        oyes;
+        cout << n/2 nline ;
+        fr(i, 0, n/2){
+            cout << 2 << " ";
         }
-        else if (x==1){
-            ans+=1;
-        }
-        else if (x==0){
-            ans+=0;
-        }
-        else{
-            ans+=2;
-        }
+        cout nline;
+        return;
     }
-    // print(nums);
-    cout << ans nline;
+    else{
+        ono;
+    }
+    
+    
 }
 
 signed main(){

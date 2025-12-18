@@ -46,6 +46,8 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 const int INF = LLONG_MAX >> 1;
 
+//?-----------------------------------------------------------------------------------------------------------
+
 //--------------------------------------------------------------------------------------------------------------------
 
 //* Debuggers
@@ -61,69 +63,34 @@ void print_container(const T& container) {
     cout << endl;
 }
 #define print(x) print_container(x);
-//?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
     in(n);
-    string s; cin >> s;
-    
-    vi nums;
+    vi nums(n);
+    ina(nums, n);
 
-    // int tempcounter = 0;
-    bool firstflag = false;
-    int firstindex = 0;
+    sort(all(nums));
+    // cout << __gcd(nums[1],nums[0]) nline;
+    bool flag = false;
 
     fr(i, 0, n){
-        if (s[i]=='.'){
-            if (firstflag == false){
-                firstindex = i;
-                firstflag = true;
+        fr(j, 0, n){
+            if(i!=j){
+                if (__gcd(nums[i], nums[j]) <=2){
+                    flag = true;
+                    // oyess;
+                    break;
+                }
             }
-
-        }
-        if (s[i] == '#'  ){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i - firstindex);    
-            }
-        }
-        if(i==n-1){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i+1 - firstindex);    
-            }
-        }
-
-        
-    }
-    nums.pb(0);
-
-    int ans = 0;
-    bool pardonflag = false;
-    for(auto &x:nums){
-        if(x>=3){
-            pardonflag = true;
-            ans+=2;
-            break;
         }
     }
 
-    for(auto &x:nums){
-        if (pardonflag){
-            break;
-        }
-        else if (x==1){
-            ans+=1;
-        }
-        else if (x==0){
-            ans+=0;
-        }
-        else{
-            ans+=2;
-        }
+    if(flag){
+        oyess;
+    }else{
+        onoo;
     }
-    // print(nums);
-    cout << ans nline;
+    // all i need is two coprime numbers
 }
 
 signed main(){

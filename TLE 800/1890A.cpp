@@ -46,84 +46,103 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 const int INF = LLONG_MAX >> 1;
 
-//--------------------------------------------------------------------------------------------------------------------
-
-//* Debuggers
-#define debug(x) cout << #x << " = " << x << endl;
-
-
-template<typename T>
-void print_container(const T& container) {
-    for (auto it = container.begin(); it != container.end(); ++it) {
-        cout << *it;
-        if (next(it) != container.end()) cout << " ";
-    }
-    cout << endl;
-}
-#define print(x) print_container(x);
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
     in(n);
-    string s; cin >> s;
+
+
+    // final implementation, just measure two numbers
+    // if abs(count(number1) - count(number2)) == 0||1 { oyes; }
     
-    vi nums;
+    vi nums(n);
+    ina(nums, n);
 
-    // int tempcounter = 0;
-    bool firstflag = false;
-    int firstindex = 0;
 
-    fr(i, 0, n){
-        if (s[i]=='.'){
-            if (firstflag == false){
-                firstindex = i;
-                firstflag = true;
-            }
-
+    int a = -1, b = -1;
+    int ac = 0, bc = 0;
+    bool flag = false;
+    fr(i,0,n){
+        if (a != -1 && b == -1 && a!=nums[i]){
+            b = nums[i];
         }
-        if (s[i] == '#'  ){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i - firstindex);    
-            }
+        else if(a == -1){
+            a = nums[i];
         }
-        if(i==n-1){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i+1 - firstindex);    
-            }
-        }
-
         
-    }
-    nums.pb(0);
 
-    int ans = 0;
-    bool pardonflag = false;
-    for(auto &x:nums){
-        if(x>=3){
-            pardonflag = true;
-            ans+=2;
-            break;
+        if (nums[i] == a){
+            ac+=1;
         }
-    }
-
-    for(auto &x:nums){
-        if (pardonflag){
-            break;
-        }
-        else if (x==1){
-            ans+=1;
-        }
-        else if (x==0){
-            ans+=0;
+        else if (nums[i] == b){
+            bc+=1;
         }
         else{
-            ans+=2;
+            flag = true;
         }
     }
-    // print(nums);
-    cout << ans nline;
+
+    // cout << ac << " " << bc nline;
+
+    if (flag){
+        onoo;
+    }
+    else if( ac-bc == 0 || abs(ac - bc) == 1 || bc == 0){
+        oyess;
+    }
+    else{
+        onoo;
+    }
+    
+    // char with freq 1 is edgecase, only 'good' is if nothing exists or another char with freq 2
+    //
+
+    // 3 5
+    // a a b b b c c c c c 
+    // c c c c c
+    // parity needs to remain same?
+    // odd with odd
+
+    // edgecase of even with odd working is 2 with 3
+    // 1 with 0
+    // 1 with 2
+    // 2 with even
+    // ababa
+
+    // its not parity, its just a very few sub conditions that work out
+    // both same
+    // 
+
+
+    // final
+    // both same, all same freq
+
+    // 1 with 0, 1 with 2
+
+    // 3 with 2
+    // 4 with 3
+    
+
+    // algo - if freq, then freq-1 OR freq should also be present
+    // smart question
+
+
+    // implementation, multiset measuring count, count stored in vector, sorted
+    
+    // 2 3 4
+    // aabbbcccc
+    //cbcbcbc
+    // if multiple counts then all should be same?
+    // 2 2 2
+    // cbc
+
+    // looks like multiple counts wont work
+    // final implementation, just measure two numbers
+    // if abs(count(number1) - count(number2)) == 0||1 { oyes; }
+
+
+
+    
 }
 
 signed main(){

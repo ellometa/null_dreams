@@ -45,7 +45,6 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 #define nline <<'\n'
 
 const int INF = LLONG_MAX >> 1;
-
 //--------------------------------------------------------------------------------------------------------------------
 
 //* Debuggers
@@ -65,65 +64,55 @@ void print_container(const T& container) {
 
 void solve(){
     in(n);
-    string s; cin >> s;
-    
-    vi nums;
+    vi nums(n);
+    ina(nums, n);
+    sort(all(nums));
 
-    // int tempcounter = 0;
-    bool firstflag = false;
-    int firstindex = 0;
 
-    fr(i, 0, n){
-        if (s[i]=='.'){
-            if (firstflag == false){
-                firstindex = i;
-                firstflag = true;
-            }
+    // keep the biggest in c along with all occurences of c, rest all in b
+    // 1 2 3 4
+    // 5
+    // if c divides anything in b
+    // move on to next biggest element
+    // print(nums);
+    vi bv, cv;
+    bool divflag = false;
+    int c ;
+    for(int i = (n-1); i >= 0; i--){
 
+
+        if(cv.empty()){
+            c = nums[i];
         }
-        if (s[i] == '#'  ){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i - firstindex);    
-            }
-        }
-        if(i==n-1){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i+1 - firstindex);    
-            }
-        }
-
         
-    }
-    nums.pb(0);
-
-    int ans = 0;
-    bool pardonflag = false;
-    for(auto &x:nums){
-        if(x>=3){
-            pardonflag = true;
-            ans+=2;
-            break;
-        }
-    }
-
-    for(auto &x:nums){
-        if (pardonflag){
-            break;
-        }
-        else if (x==1){
-            ans+=1;
-        }
-        else if (x==0){
-            ans+=0;
+        if(nums[i] == c){
+            cv.pb(nums[i]);
         }
         else{
-            ans+=2;
+            bv.pb(nums[i]);
+        }
+
+        fr(j,0,bv.size()){
+            if(bv[j] % c == 0){
+                divflag = true; 
+            }
+        }
+        if (!divflag && i==0){
+            break;
         }
     }
-    // print(nums);
-    cout << ans nline;
+
+    if(bv.empty() || divflag){
+        ve1; return;
+    }
+    else{
+        cout << bv.size() << " " << cv.size() nline;
+        print(bv);
+        print(cv);
+    }
+
+
+    
 }
 
 signed main(){

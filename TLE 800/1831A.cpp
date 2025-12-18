@@ -46,84 +46,21 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 const int INF = LLONG_MAX >> 1;
 
-//--------------------------------------------------------------------------------------------------------------------
-
-//* Debuggers
-#define debug(x) cout << #x << " = " << x << endl;
-
-
-template<typename T>
-void print_container(const T& container) {
-    for (auto it = container.begin(); it != container.end(); ++it) {
-        cout << *it;
-        if (next(it) != container.end()) cout << " ";
-    }
-    cout << endl;
-}
-#define print(x) print_container(x);
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
     in(n);
-    string s; cin >> s;
-    
-    vi nums;
-
-    // int tempcounter = 0;
-    bool firstflag = false;
-    int firstindex = 0;
-
-    fr(i, 0, n){
-        if (s[i]=='.'){
-            if (firstflag == false){
-                firstindex = i;
-                firstflag = true;
-            }
-
-        }
-        if (s[i] == '#'  ){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i - firstindex);    
-            }
-        }
-        if(i==n-1){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i+1 - firstindex);    
-            }
-        }
-
-        
+    // 99 1 98 2
+    // 1 99 2 98
+    // 1 2 4 5 3
+    // 5 4 2 1 3
+    int max = n+1;
+    int x;
+    fr(i,0,n){
+        cin >> x;
+        cout << max - x << " ";
     }
-    nums.pb(0);
-
-    int ans = 0;
-    bool pardonflag = false;
-    for(auto &x:nums){
-        if(x>=3){
-            pardonflag = true;
-            ans+=2;
-            break;
-        }
-    }
-
-    for(auto &x:nums){
-        if (pardonflag){
-            break;
-        }
-        else if (x==1){
-            ans+=1;
-        }
-        else if (x==0){
-            ans+=0;
-        }
-        else{
-            ans+=2;
-        }
-    }
-    // print(nums);
-    cout << ans nline;
+    cout nline;
 }
 
 signed main(){

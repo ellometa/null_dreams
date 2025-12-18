@@ -65,65 +65,27 @@ void print_container(const T& container) {
 
 void solve(){
     in(n);
-    string s; cin >> s;
+    // for any inversion, add [1] right before
+    vi nums(n);
+
+    ina(nums, n);
+    // cout << nums[0] << " ";
     
-    vi nums;
-
-    // int tempcounter = 0;
-    bool firstflag = false;
-    int firstindex = 0;
-
-    fr(i, 0, n){
-        if (s[i]=='.'){
-            if (firstflag == false){
-                firstindex = i;
-                firstflag = true;
-            }
-
+    vi res;
+    res.pb(nums[0]);
+    fr(i,1,n){
+        if(nums[i] >= nums[i-1]){
+            res.pb(nums[i]);
+            // cout << nums[i] << " ";
+            continue;
         }
-        if (s[i] == '#'  ){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i - firstindex);    
-            }
-        }
-        if(i==n-1){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i+1 - firstindex);    
-            }
-        }
-
-        
-    }
-    nums.pb(0);
-
-    int ans = 0;
-    bool pardonflag = false;
-    for(auto &x:nums){
-        if(x>=3){
-            pardonflag = true;
-            ans+=2;
-            break;
-        }
+        res.pb(1);
+        res.pb(nums[i]);
+        // cout << "1" << " " << nums[i] << " ";
     }
 
-    for(auto &x:nums){
-        if (pardonflag){
-            break;
-        }
-        else if (x==1){
-            ans+=1;
-        }
-        else if (x==0){
-            ans+=0;
-        }
-        else{
-            ans+=2;
-        }
-    }
-    // print(nums);
-    cout << ans nline;
+    cout << res.size() nline;
+    print(res);
 }
 
 signed main(){

@@ -46,84 +46,32 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 const int INF = LLONG_MAX >> 1;
 
-//--------------------------------------------------------------------------------------------------------------------
-
-//* Debuggers
-#define debug(x) cout << #x << " = " << x << endl;
-
-
-template<typename T>
-void print_container(const T& container) {
-    for (auto it = container.begin(); it != container.end(); ++it) {
-        cout << *it;
-        if (next(it) != container.end()) cout << " ";
-    }
-    cout << endl;
-}
-#define print(x) print_container(x);
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
     in(n);
-    string s; cin >> s;
-    
-    vi nums;
+    vi nums(n);
+    ina(nums, n);
+    nums.pb(1LL);
 
-    // int tempcounter = 0;
-    bool firstflag = false;
-    int firstindex = 0;
-
-    fr(i, 0, n){
-        if (s[i]=='.'){
-            if (firstflag == false){
-                firstindex = i;
-                firstflag = true;
-            }
-
-        }
-        if (s[i] == '#'  ){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i - firstindex);    
-            }
-        }
-        if(i==n-1){
-            if(firstflag == true){
-                firstflag = false;
-                nums.pb(i+1 - firstindex);    
-            }
-        }
-
+    int maxn = 0;
+    int index;
+    bool flag = false;
+    fr(i,0,n+1LL){
+        if( (nums[i]== 0) && flag==false){
+            flag = true;
+            index=i;
+        }   
         
-    }
-    nums.pb(0);
+        if(nums[i] == 1){
+            if(flag){
+                maxn = max(maxn, i - index);
+                flag = false;
+            }
 
-    int ans = 0;
-    bool pardonflag = false;
-    for(auto &x:nums){
-        if(x>=3){
-            pardonflag = true;
-            ans+=2;
-            break;
         }
     }
-
-    for(auto &x:nums){
-        if (pardonflag){
-            break;
-        }
-        else if (x==1){
-            ans+=1;
-        }
-        else if (x==0){
-            ans+=0;
-        }
-        else{
-            ans+=2;
-        }
-    }
-    // print(nums);
-    cout << ans nline;
+    cout << maxn nline;
 }
 
 signed main(){
