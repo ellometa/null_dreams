@@ -7,18 +7,15 @@ using namespace std;
 void solve(){
     
 
-    string p = "ZZZZZzZZZZZ", ciphertext;
+    string p, ciphertext; cin >> p;
 
     for (auto &a: p){ a = toupper(a);}
 
     int key = 2;
 
     for(int i = 0; i < (int)p.size(); i++){
-        
         int ans = (int(p[i]-'A') + key)%26;
-
         ciphertext+=char(ans+65);
-    
     }
 
     cout << ciphertext;
@@ -29,7 +26,7 @@ int main() {
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
     ll test=1;
-    cin>>test;
+    // cin>>test; 
     while(test--){
         solve();
     }

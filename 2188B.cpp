@@ -1,0 +1,104 @@
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace std;
+using namespace __gnu_pbds;
+typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;
+mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
+
+#define fast_input() ios::sync_with_stdio(false); cin.tie(nullptr);
+
+#define int long long
+#define fr(i, a, b) for (int i = (a); i < (int)(b); ++i)
+#define frr(i, a, b) for (int i = (a); i > (int)(b); --i)
+#define in(n)    \
+    long long n; cin >> n;
+#define ina(x, n)               \
+    for (int i = 0; i < n; ++i) \
+        cin >> x[i];
+#define input_set(set, n)       \
+    for(int i=0;i<n;i++){int x;cin>>x;set.insert(x);}
+#define double long double
+#define pb push_back
+#define vi vector<int>
+#define mii map<int, int>
+#define vvi vector<vector<int>>
+#define vpi vector<pair<int, int>>
+#define pi pair<int, int>
+#define si set<int>
+
+#define ff first
+#define ss second
+#define MOD 1000000007
+#define endl "\n"
+#define oyes cout << "YES" << endl;
+#define ono cout << "NO" << endl;
+#define oyess cout << "Yes" << endl;
+#define onoo cout << "No" << endl;
+#define ve1 cout << "-1" << endl;
+
+#define vi vector<int>
+#define all(x) (x).begin(), (x).end()
+#define rall(x) reverse((x).begin(), (x).end())
+#define sz(x) (int)(x).size()
+
+#define nline <<'\n'
+
+const int INF = LLONG_MAX >> 1;
+
+//?-----------------------------------------------------------------------------------------------------------
+
+
+void solve() {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+
+    int existing = 0;
+    for (char c : s) if (c == '1') existing++;
+
+    int added = 0;
+    int i = 0;
+
+    while (i < n) {
+        if (s[i] == '1') {
+            i++;
+            continue;
+        }
+
+        int j = i;
+        while (j < n && s[j] == '0') j++;
+        int len = j - i;
+
+        bool left_blocked  = (i > 0 && s[i - 1] == '1');
+        bool right_blocked = (j < n && s[j] == '1');
+
+        if (left_blocked && right_blocked) {
+            added += max(0LL, (len - 1) / 2);
+        } else if (left_blocked || right_blocked) {
+            added += len / 2;
+        } else {
+            added += (len + 1) / 2;
+        }
+
+        i = j;
+    }
+
+    cout << existing + added << endl;
+}
+
+
+
+signed main(){
+    fast_input();
+
+    int t=1;
+    cin >> t;
+    for (int i = 1; i <= t; i++){
+        // cout << "Case " << i << ":" << endl;
+        solve();
+    }
+
+    return 0;
+}
