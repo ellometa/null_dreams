@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
-using namespace __gnu_pbds;
-typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;
+// typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds; 
+// PBDS requires GCC-specific <ext/pb_ds/...> headers. 
 mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 #define fast_input() ios::sync_with_stdio(false); cin.tie(nullptr);
@@ -50,7 +49,16 @@ const int INF = LLONG_MAX >> 1;
 
 void solve(){
     in(n);
-    
+    vi a(n);
+    ina(a, n);
+    int ans = 0;
+    fr(i, 1, n){
+        if(a[i] < a[i-1]){
+            ans += (a[i-1] - a[i]);
+            a[i] = a[i-1];
+        }
+    }
+    cout << ans << endl;
 }
 
 signed main(){
