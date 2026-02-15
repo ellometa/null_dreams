@@ -49,23 +49,18 @@ const int INF = LLONG_MAX >> 1;
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
-    in(n); cout << n << " ";
-    while(n!=1){
-        if(n&1){
-            n=n*3+1;
-        }
-        else{
-            n/=2;
-        }
-        cout << n << " ";
+    in(n);
+    fr(i,1,n+1){
+        cout << i << " ";
     }
+    cout nline;
 }
 
 signed main(){
     fast_input();
 
     int t=1;
-    // cin >> t;
+    cin >> t;
     for (int i = 1; i <= t; i++){
         // cout << "Case " << i << ":" << endl;
         solve();

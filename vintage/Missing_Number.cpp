@@ -8,7 +8,7 @@ mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
 
 #define fast_input() ios::sync_with_stdio(false); cin.tie(nullptr);
 
-#define int long long
+using ll = long long;
 #define fr(i, a, b) for (int i = (a); i < (int)(b); ++i)
 #define frr(i, a, b) for (int i = (a); i > (int)(b); --i)
 #define in(n)    \
@@ -49,16 +49,13 @@ const int INF = LLONG_MAX >> 1;
 //?-----------------------------------------------------------------------------------------------------------
 
 void solve(){
-    in(n); cout << n << " ";
-    while(n!=1){
-        if(n&1){
-            n=n*3+1;
-        }
-        else{
-            n/=2;
-        }
-        cout << n << " ";
-    }
+    in(n);
+    vi nums(n-1);
+    ina(nums, n-1);
+    int sum = accumulate(all(nums), 0LL);
+    int rsum = n*(n+1)/2;
+    cout << rsum - sum;
+    
 }
 
 signed main(){
