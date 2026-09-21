@@ -1,0 +1,35 @@
+CompileFlags:
+  Compiler: /opt/homebrew/bin/g++-15
+  Add:
+    - -std=c++17
+    # Parse against Homebrew GCC 15's libstdc++ instead of Apple's libc++,
+    # so <bits/stdc++.h> and <ext/pb_ds/*> resolve the same way g++-15 sees them.
+    - -nostdinc++
+    - -I/opt/homebrew/opt/gcc/include/c++/15
+    - -I/opt/homebrew/opt/gcc/include/c++/15/aarch64-apple-darwin25
+    - -I/opt/homebrew/opt/gcc/include/c++/15/backward
+    - -isysroot/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+    # AtCoder Library headers (<atcoder/*>), cloned to ~/ac-library.
+    - -I/Users/ellometa/ac-library
+    # libstdc++'s <cmath> marks constexpr functions clang can't fold; harmless.
+    - -Wno-invalid-constexpr
+    - -Wno-ignored-attributes
+    - -Wno-deprecated-builtins
+    - -Wno-keyword-compat
+  Remove:
+    # GCC-only driver flags clang would reject if they ever reach it.
+    - -fdiagnostics-color*
+    - -march=*
+    - -mtune=*
+
+Diagnostics:
+  UnusedIncludes: None
+  MissingIncludes: None
+  Suppress:
+    - pp_file_not_found
+
+Index:
+  Background: Build
+
+InlayHints:
+  Enabled: false

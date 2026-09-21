@@ -1,0 +1,31 @@
+CompileFlags:
+  # Homebrew GCC, so <bits/stdc++.h> and <ext/pb_ds/*> resolve the way g++ sees
+  # them. clangd's --query-driver asks this binary for its own libstdc++ include
+  # paths, so a `brew upgrade gcc` does not strand us on a dead version number.
+  Compiler: /opt/homebrew/bin/g++-16
+  Add:
+    - -std=c++17
+    # AtCoder Library headers (<atcoder/*>), cloned to ~/ac-library.
+    - -I/Users/ellometa/ac-library
+    # libstdc++ marks constexpr functions clang can't fold; harmless here.
+    - -Wno-invalid-constexpr
+    - -Wno-ignored-attributes
+    - -Wno-deprecated-builtins
+    - -Wno-keyword-compat
+  Remove:
+    # GCC-only driver flags clang would reject if they ever reach it.
+    - -fdiagnostics-color*
+    - -march=*
+    - -mtune=*
+
+Diagnostics:
+  UnusedIncludes: None
+  MissingIncludes: None
+  Suppress:
+    - pp_file_not_found
+
+Index:
+  Background: Build
+
+InlayHints:
+  Enabled: false
